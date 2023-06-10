@@ -4,9 +4,14 @@ const data = require('./data');
 retornando uma string no seguinte formato: "os melhores álbuns do Radiohead: In Rainbows,Kid A,OK Computer,Pablo Honey"
 */
 
-const getBestAlbuns = () => {
+const getBestAlbuns = (data) => {
+  const { bands } = data;
+  const { bandName, bestAlbuns } = bands[0];
+  const bestAlbumsName = bestAlbuns.map((album) => album.name);
 
+  return `os melhores álbuns do ${bandName}: ${bestAlbumsName}`;
 }
 
+console.log(getBestAlbuns(data));
 
 module.exports = getBestAlbuns;
